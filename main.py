@@ -3,8 +3,7 @@ import sqlite3, hashlib, os
 from werkzeug.utils import secure_filename
 
 # This line imports the Contrast middleware class from the package
-from contrast.agent.middlewares.flask_middleware
-import FlaskMiddleware as ContrastMiddleware
+from contrast.agent.middlewares.flask_middleware import FlaskMiddleware as ContrastMiddleware
 
 app = Flask(__name__)
 
