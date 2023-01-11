@@ -2,7 +2,15 @@ from flask import *
 import sqlite3, hashlib, os
 from werkzeug.utils import secure_filename
 
+# This line imports the Contrast middleware class from the package
+from contrast.agent.middlewares.flask_middleware
+import FlaskMiddleware as ContrastMiddleware
+
 app = Flask(__name__)
+
+# This line wraps the application instance with the Contrast middleware
+app.wsgi_app = ContrastMiddleware(app)
+
 app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
